@@ -3,6 +3,7 @@ import functions.password_generator as password_generator
 import pyperclip
 import functions.Repeater as repeater
 import functions.show_system_info as show_system_info
+import functions.ping_host as ping_host
 
 def display_banner():
     banner = r"""
@@ -24,8 +25,9 @@ def choose_option():
     print("2. Repeat text")
     print("3. Download YouTube video")
     print("4. Show system information")
-    print("5. Exit")
-    choice = input("Enter your choice (1,2 or 3): ")
+    print("5. Ping a host")
+    print("6. Exit")
+    choice = input("Enter your choice: ")
     return int(choice)
 
 choice = choose_option()
@@ -53,6 +55,9 @@ while True:
         show_system_info.show_system_info()
         break
     elif choice == 5:
+        ping_host.ping_host()
+        break
+    elif choice == 6:
         print("Exiting the program.")
         exit(0)
     else:
