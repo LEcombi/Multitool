@@ -1,8 +1,11 @@
 import random
 import string
+import dependencies.clear_screen as clear_screen
+import dependencies.pause as pause
 
 def generate_password(length=12):
     """Generates a secure password with the specified length."""
+    clear_screen.clear_screen()
     if length < 4:
         raise ValueError("Password length should be at least 4 characters.")
     
@@ -28,7 +31,5 @@ def generate_password(length=12):
     random.shuffle(password)
 
     return ''.join(password)
+    pause()
 
-# Example usage
-if __name__ == "__main__":
-    print("Generated password:", generate_password(16))

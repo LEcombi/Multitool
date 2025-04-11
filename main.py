@@ -2,6 +2,7 @@ import functions.youtube_downloader as youtube_downloader
 import functions.password_generator as password_generator
 import pyperclip
 import functions.Repeater as repeater
+import functions.show_system_info as show_system_info
 
 def display_banner():
     banner = r"""
@@ -22,7 +23,8 @@ def choose_option():
     print("1. Generate a password")
     print("2. Repeat text")
     print("3. Download YouTube video")
-    print("4. Exit")
+    print("4. Show system information")
+    print("5. Exit")
     choice = input("Enter your choice (1,2 or 3): ")
     return int(choice)
 
@@ -48,6 +50,9 @@ while True:
         youtube_downloader.download_youtube_video(video_url, output_path)
         break
     elif choice == 4:
+        show_system_info.show_system_info()
+        break
+    elif choice == 5:
         print("Exiting the program.")
         exit(0)
     else:
