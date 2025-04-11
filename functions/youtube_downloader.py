@@ -1,0 +1,17 @@
+from yt_dlp import YoutubeDL
+import os
+def download_youtube_video(url, output_path="yt_downloads"):
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+
+    ydl_opts = {
+        'outtmpl': f"{output_path}/%(title)s.%(ext)s",
+        'format': 'best'
+    }
+
+    with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
+
+if __name__ == "__main__":
+    video_url = input("Enter the YouTube video URL: ")
+    download_youtube_video(video_url)
