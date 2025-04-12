@@ -58,4 +58,16 @@ pip install scapy
    python main.py
    ```
 
+---
+
+# Note on Using the Scan-Network Feature
+
+The **Scan-Network Feature** of the Multitool program requires elevated privileges because it accesses network resources that need administrator rights.
+
+## Important Notes
+
+- To successfully use the Scan-Network feature, run the program with **sudo** (on Linux) or as an administrator (on Windows).
+- Without these privileges, the feature may not function correctly or access may be denied.
+
+
 
