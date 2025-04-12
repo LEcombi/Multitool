@@ -24,7 +24,8 @@ def scan_network(ip_range):
     for sent, received in answered:
         devices.append({
             "ip": received.psrc,
-            "mac": received.hwsrc
+            "mac": received.hwsrc,
+            "name": received.psrc,
         })
 
     return devices
