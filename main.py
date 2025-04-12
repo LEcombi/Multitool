@@ -5,6 +5,7 @@ import functions.Repeater as repeater
 import functions.show_system_info as show_system_info
 import functions.ping_host as ping_host
 import functions.qr_code_gen as qr_code_generator
+import functions.barcode_gen as barcode_generator
 
 def display_banner():
     banner = r"""
@@ -28,7 +29,8 @@ def choose_option():
     print("4. Show system information")
     print("5. Ping a host")
     print("6. Generate a QR code")
-    print("7. Exit")
+    print("7. Generate a barcode")
+    print("8. Exit")
     choice = input("Enter your choice: ")
     return int(choice)
 
@@ -60,9 +62,17 @@ while True:
         ping_host.ping_host()
         break
     elif choice == 6:
-        data = input("Enter the data to encode in the QR code: ")
-        qr_code_generator.generate_qr_code(data)
+        data = input("Enter the data to encode in the qr code: ")
+        output_folder = input("Enter the output folder (default is 'qr_codes'): ") or "qr_codes"
+        file_name = input("Enter the file name (default is 'qr_code.png'): ") or "barcode.png"
+        qr_code_generator.generate_qr_code(data, output_folder, file_name)
+
     elif choice == 7:
+        data = input("Enter the data to encode in the barcode: ")
+        output_folder = input("Enter the output folder (default is 'barcodes'): ") or "barcodes"
+        file_name = input("Enter the file name (default is 'barcode.png'): ") or "barcode.png"
+        barcode_generator.generate_barcode(data, output_folder, file_name)
+    elif choice == 8:
         print("Exiting the program.")
         exit(0)
     else:

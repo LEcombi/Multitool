@@ -1,3 +1,4 @@
 pyperclip
 yt-dlp
 qrcode
+barcode
