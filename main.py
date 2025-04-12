@@ -84,6 +84,8 @@ while True:
                 file_name = input("Enter the file name (default is 'barcode.png'): ") or "barcode.png"
                 barcode_generator.generate_barcode(data, output_folder, file_name)
             elif utilities_choice == 5:  # Back to Main Menu
+                clear_screen.clear_screen()
+                banner.display_banner()
                 break
             else:
                 print("Invalid choice. Please try again.")
@@ -107,6 +109,8 @@ while True:
                 ping_host.ping_host(host)
 
             elif networking_choice == 4:  # Back to Main Menu
+                clear_screen.clear_screen()
+                banner.display_banner()
                 break
 
             else:

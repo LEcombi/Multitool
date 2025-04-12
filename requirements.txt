@@ -2,3 +2,4 @@ pyperclip
 yt-dlp
 qrcode
 barcode
+python-barcode
