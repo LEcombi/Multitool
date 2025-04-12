@@ -1,0 +1,17 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {},
+  "postCreateCommand": "apt-get update && apt-get install -y ftp",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "remote.extensionKind": {
+          "humy2833.ftp-simple": ["workspace"]
+        }
+      },
+      "extensions": [
+        "humy2833.ftp-simple"
+      ]
+    }
+  }
+}
