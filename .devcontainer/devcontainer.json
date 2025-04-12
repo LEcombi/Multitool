@@ -1,16 +1,19 @@
 {
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {},
-  "postCreateCommand": "apt-get update && apt-get install -y ftp",
+  "postCreateCommand": "apt-get update && apt-get install -y ftp && python3 -m venv .venv && echo 'source .venv/bin/activate' >> /etc/bash.bashrc",
   "customizations": {
     "vscode": {
       "settings": {
         "remote.extensionKind": {
-          "humy2833.ftp-simple": ["workspace"]
-        }
+          "humy2833.ftp-simple": ["workspace"],
+          "ms-python.python": ["workspace"]
+        },
+        "python.defaultInterpreterPath": ".venv/bin/python"
       },
       "extensions": [
-        "humy2833.ftp-simple"
+        "humy2833.ftp-simple",
+        "ms-python.python"
       ]
     }
   }
