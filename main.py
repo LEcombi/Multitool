@@ -4,6 +4,7 @@ import pyperclip
 import functions.Repeater as repeater
 import functions.show_system_info as show_system_info
 import functions.ping_host as ping_host
+import functions.qr_code_gen as qr_code_generator
 
 def display_banner():
     banner = r"""
@@ -26,7 +27,8 @@ def choose_option():
     print("3. Download YouTube video")
     print("4. Show system information")
     print("5. Ping a host")
-    print("6. Exit")
+    print("6. Generate a QR code")
+    print("7. Exit")
     choice = input("Enter your choice: ")
     return int(choice)
 
@@ -58,6 +60,9 @@ while True:
         ping_host.ping_host()
         break
     elif choice == 6:
+        data = input("Enter the data to encode in the QR code: ")
+        qr_code_generator.generate_qr_code(data)
+    elif choice == 7:
         print("Exiting the program.")
         exit(0)
     else:
