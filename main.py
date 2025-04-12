@@ -8,6 +8,7 @@ import functions.qr_code_gen as qr_code_generator
 import functions.barcode_gen as barcode_generator
 import dependencies.banner as banner
 import dependencies.clear_screen as clear_screen
+import functions.List_network_devices as scan_network
 
 # Display the banner at the start of the program
 banner.display_banner()
@@ -46,7 +47,8 @@ def choose_networking_option():
     print("1. Download YouTube video")
     print("2. Show system information")
     print("3. Ping a host")
-    print("4. Back to Main Menu")
+    print("4. Scan network devices")
+    print("5. Back to Main Menu")
     print("=" * 20)
     choice = input("Enter your choice: ")
     return int(choice)
@@ -108,7 +110,20 @@ while True:
                 host = input("Enter the host to ping: ")
                 ping_host.ping_host(host)
 
-            elif networking_choice == 4:  # Back to Main Menu
+            elif networking_choice == 4:  # Scan network devices
+                ip_range = input("Enter the IP range to scan: ")
+                print(f"Scanning network: {ip_range}")
+
+                devices = scan_network.scan_network(ip_range)
+                if devices:
+                    print(f"Found {len(devices)} devices:")
+                    print("-" * 40)
+                    for device in devices:
+                        print(f"IP Address: {device['ip']}, MAC Address: {device['mac']}")
+                else:
+                    print("No devices found.")
+
+            elif networking_choice == 5:  # Back to Main Menu
                 clear_screen.clear_screen()
                 banner.display_banner()
                 break

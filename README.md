@@ -35,6 +35,7 @@ pip install pyperclip
 pip install yt-dlp
 pip install qrcode
 pip install barcode
+pip install scapy
 ```
 
 ---
