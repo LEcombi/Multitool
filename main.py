@@ -5,7 +5,6 @@ import functions.Repeater as repeater
 import functions.show_system_info as show_system_info
 import functions.ping_host as ping_host
 import functions.qr_code_gen as qr_code_generator
-import functions.barcode_gen as barcode_generator
 import dependencies.banner as banner
 import dependencies.clear_screen as clear_screen
 import functions.List_network_devices as scan_network
@@ -33,8 +32,7 @@ def choose_utilities_option():
     print("1. Generate a password")
     print("2. Repeat text")
     print("3. Generate a QR code")
-    print("4. Generate a barcode")
-    print("5. Back to Main Menu")
+    print("4. Back to Main Menu")
     print("=" * 20)
     choice = input("Enter your choice: ")
     return int(choice)
@@ -80,12 +78,7 @@ while True:
                 output_folder = input("Enter the output folder (default is 'qr_codes'): ") or "qr_codes"
                 file_name = input("Enter the file name (default is 'qr_code.png'): ") or "qr_code.png"
                 qr_code_generator.generate_qr_code(data, output_folder, file_name)
-            elif utilities_choice == 4:  # Generate a barcode
-                data = input("Enter the data to encode in the barcode: ")
-                output_folder = input("Enter the output folder (default is 'barcodes'): ") or "barcodes"
-                file_name = input("Enter the file name (default is 'barcode.png'): ") or "barcode.png"
-                barcode_generator.generate_barcode(data, output_folder, file_name)
-            elif utilities_choice == 5:  # Back to Main Menu
+            elif utilities_choice == 4:  # Back to Main Menu
                 clear_screen.clear_screen()
                 banner.display_banner()
                 break

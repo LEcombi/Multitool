@@ -34,7 +34,6 @@ Make sure to install the required dependencies by running the following commands
 pip install pyperclip
 pip install yt-dlp
 pip install qrcode
-pip install barcode
 pip install scapy
 ```
 
