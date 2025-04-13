@@ -8,6 +8,7 @@ import functions.qr_code_gen as qr_code_generator
 import dependencies.banner as banner
 import dependencies.clear_screen as clear_screen
 import functions.List_network_devices as scan_network
+from dependencies.screen_baner import reload
 
 # Display the banner at the start of the program
 banner.display_banner()
@@ -62,7 +63,7 @@ while True:
         while True:
             utilities_choice = choose_utilities_option()
             if utilities_choice == 1:  # Generate a password
-                
+                reload()
                 length = int(input("Enter the desired password length (minimum 4): "))
                 try:
                     password = password_generator.generate_password(length)
@@ -72,15 +73,16 @@ while True:
                 except ValueError as e:
                     print(e)
             elif utilities_choice == 2:  # Repeat text
+                reload()
                 repeater.repeater()
             elif utilities_choice == 3:  # Generate a QR code
+                reload()
                 data = input("Enter the data to encode in the QR code: ")
                 output_folder = input("Enter the output folder (default is 'qr_codes'): ") or "qr_codes"
                 file_name = input("Enter the file name (default is 'qr_code.png'): ") or "qr_code.png"
                 qr_code_generator.generate_qr_code(data, output_folder, file_name)
             elif utilities_choice == 4:  # Back to Main Menu
-                clear_screen.clear_screen()
-                banner.display_banner()
+                reload()
                 break
             else:
                 print("Invalid choice. Please try again.")
@@ -88,8 +90,7 @@ while True:
     # Networking Menu
     elif choice == 2:
         while True:
-            clear_screen.clear_screen()
-            banner.display_banner()
+            reload()
             networking_choice = choose_networking_option()
             if networking_choice == 1:  # Download YouTube video
                 video_url = input("Enter the YouTube video URL: ")
@@ -97,13 +98,16 @@ while True:
                 youtube_downloader.download_youtube_video(video_url, output_path)
 
             elif networking_choice == 2:  # Show system information
+                reload()
                 show_system_info.show_system_info()
 
             elif networking_choice == 3:  # Ping a host
+                reload()
                 host = input("Enter the host to ping: ")
                 ping_host.ping_host(host)
 
             elif networking_choice == 4:  # Scan network devices
+                reload()
                 ip_range = input("Enter the IP range to scan: ")
                 print(f"Scanning network: {ip_range}")
 
@@ -117,8 +121,7 @@ while True:
                     print("No devices found.")
 
             elif networking_choice == 5:  # Back to Main Menu
-                clear_screen.clear_screen()
-                banner.display_banner()
+                reload()
                 break
 
             else:
@@ -126,8 +129,7 @@ while True:
 
     # Exit the program
     elif choice == 3:
-        clear_screen.clear_screen()
-        banner.display_banner()
+        reload()
         print("Exiting the program.")
         exit(0)
 
