@@ -1,3 +1,4 @@
+
 # Multitool
 
 A versatile tool written in Python that provides various useful functionalities.
@@ -24,6 +25,12 @@ Allows you to ping an IP address or hostname with a custom number of attempts.
 ### 6. QR Code Generator
 Creates QR codes from any data and saves them as image files.
 
+### 7. Auto Clicker
+Enables automatic clicking on a specified button (left or right) with a custom click rate (number of clicks per second).
+
+### 8. Network Device Scanner
+Scans a specified IP address range and displays the found devices (IP and MAC addresses).
+
 ---
 
 ## Requirements
@@ -35,6 +42,7 @@ pip install pyperclip
 pip install yt-dlp
 pip install qrcode
 pip install scapy
+pip install pynput
 ```
 
 ---
@@ -59,14 +67,13 @@ pip install scapy
 
 ---
 
-# Note on Using the Scan-Network Feature
+## Note on Using the **Scan-Network** Feature
 
-The **Scan-Network Feature** of the Multitool program requires elevated privileges because it accesses network resources that need administrator rights.
+The **Scan-Network** feature of the Multitool program requires elevated privileges because it accesses network resources that need administrator rights.
 
-## Important Notes
+### Important Notes
 
-- To successfully use the Scan-Network feature, run the program with **sudo** (on Linux) or as an administrator (on Windows).
-- Without these privileges, the feature may not function correctly or access may be denied.
+- To successfully use the **Scan-Network** feature, run the program with **sudo** (on Linux) or as an administrator (on Windows).
+- Without these privileges, the feature may not function correctly, or access may be denied.
 
-
-
+---
