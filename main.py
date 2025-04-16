@@ -11,54 +11,54 @@ import functions.List_network_devices as scan_network
 from dependencies.screen_baner import reload
 import functions.auto_klicker as auto_klicker
 
-# Display the banner at the start of the program
+# 📢 Display the banner at the start of the program
 banner.display_banner()
 
-# Main menu function
+# 🧭 Main menu function
 def choose_option():
     print("\n" + "=" * 20)
-    print("       Main Menu")
+    print("📋       Main Menu")
     print("=" * 20)
-    print("1. Utilities")
-    print("2. Networking")
-    print("3. Exit")
+    print("1️⃣  🔧 Utilities")
+    print("2️⃣  🌐 Networking")
+    print("3️⃣  ❌ Exit")
     print("=" * 20)
-    choice = input("Enter your choice: ")
+    choice = input("👉 Enter your choice: ")
     return int(choice)
 
-# Utilities menu function
+# 🛠️ Utilities menu function
 def choose_utilities_option():
     print("\n" + "=" * 20)
-    print("   Utilities Menu")
+    print("🧰   Utilities Menu")
     print("=" * 20)
-    print("1. Generate a password")
-    print("2. Repeat text")
-    print("3. Generate a QR code")
-    print("4. Auto Clicker")
-    print("5. Back to Main Menu")
+    print("1️⃣  🔐 Generate a password")
+    print("2️⃣  🔁 Repeat text")
+    print("3️⃣  📷 Generate QR code")
+    print("4️⃣  🖱️ Auto Clicker")
+    print("5️⃣  🔙 Back to Main Menu")
     print("=" * 20)
-    choice = input("Enter your choice: ")
+    choice = input("👉 Enter your choice: ")
     return int(choice)
 
-# Networking menu function
+# 🌐 Networking menu function
 def choose_networking_option():
     print("\n" + "=" * 20)
-    print("   Networking Menu")
+    print("🌐   Networking Menu")
     print("=" * 20)
-    print("1. Download YouTube video")
-    print("2. Show system information")
-    print("3. Ping a host")
-    print("4. Scan network devices")
-    print("5. Back to Main Menu")
+    print("1️⃣  📥 Download YouTube video")
+    print("2️⃣  🖥️ Show system information")
+    print("3️⃣  📶 Ping a host")
+    print("4️⃣  📡 Scan network devices")
+    print("5️⃣  🔙 Back to Main Menu")
     print("=" * 20)
-    choice = input("Enter your choice: ")
+    choice = input("👉 Enter your choice: ")
     return int(choice)
 
-# Main program loop
+# 🔄 Main program loop
 while True:
     choice = choose_option()
 
-    # Utilities Menu
+    # 🔧 Utilities Menu
     if choice == 1:
         clear_screen.clear_screen()
         banner.display_banner()
@@ -69,11 +69,11 @@ while True:
                 length = int(input("Enter the desired password length (minimum 4): "))
                 try:
                     password = password_generator.generate_password(length)
-                    print(f"Generated password: {password}")
+                    print(f"🔐 Generated password: {password}")
                     pyperclip.copy(password)
-                    print("Password copied to clipboard.")
+                    print("📋 Password copied to clipboard.")
                 except ValueError as e:
-                    print(e)
+                    print(f"⚠️ {e}")
             elif utilities_choice == 2:  # Repeat text
                 reload()
                 repeater.repeater()
@@ -91,9 +91,9 @@ while True:
                 reload()
                 break
             else:
-                print("Invalid choice. Please try again.")
+                print("❌ Invalid choice. Please try again.")
 
-    # Networking Menu
+    # 🌐 Networking Menu
     elif choice == 2:
         while True:
             reload()
@@ -115,30 +115,29 @@ while True:
             elif networking_choice == 4:  # Scan network devices
                 reload()
                 ip_range = input("Enter the IP range to scan: ")
-                print(f"Scanning network: {ip_range}")
+                print(f"🔍 Scanning network: {ip_range}")
 
                 devices = scan_network.scan_network(ip_range)
                 if devices:
-                    print(f"Found {len(devices)} devices:")
+                    print(f"📡 Found {len(devices)} devices:")
                     print("-" * 40)
                     for device in devices:
-                        print(f"IP Address: {device['ip']}, MAC Address: {device['mac']}")
+                        print(f"💻 IP Address: {device['ip']}, MAC Address: {device['mac']}")
                 else:
-                    print("No devices found.")
+                    print("❌ No devices found.")
 
             elif networking_choice == 5:  # Back to Main Menu
                 reload()
                 break
-
             else:
-                print("Invalid choice. Please try again.")
+                print("❌ Invalid choice. Please try again.")
 
-    # Exit the program
+    # ❌ Exit the program
     elif choice == 3:
         reload()
-        print("Exiting the program.")
+        print("👋 Exiting the program.")
         exit(0)
 
-    # Handle invalid main menu choice
+    # ❗ Handle invalid main menu choice
     else:
-        print("Invalid choice. Please try again.")
+        print("❌ Invalid choice. Please try again.")

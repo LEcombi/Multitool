@@ -11,7 +11,3 @@ def download_youtube_video(url, output_path="yt_downloads"):
 
     with YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-
-if __name__ == "__main__":
-    video_url = input("Enter the YouTube video URL: ")
-    download_youtube_video(video_url)
