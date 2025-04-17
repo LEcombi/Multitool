@@ -1,6 +1,7 @@
 import functions.youtube_downloader as youtube_downloader
 import functions.password_generator as password_generator
 import pyperclip
+import time
 import functions.Repeater as repeater
 import functions.show_system_info as show_system_info
 import functions.ping_host as ping_host
@@ -12,6 +13,7 @@ from dependencies.screen_baner import reload
 import functions.auto_klicker as auto_klicker
 
 # 📢 Display the banner at the start of the program
+clear_screen.clear_screen()
 banner.display_banner()
 
 # 🧭 Main menu function
@@ -23,8 +25,14 @@ def choose_option():
     print("2️⃣  🌐 Networking")
     print("3️⃣  ❌ Exit")
     print("=" * 20)
-    choice = input("👉 Enter your choice: ")
-    return int(choice)
+    try:
+        choice = int(input("👉 Enter your choice: "))
+        return int(choice)
+    except ValueError:
+        print("❌ Invalid input. Please enter a number.")
+        time.sleep(1.5)
+        reload()
+        return choose_option()
 
 # 🛠️ Utilities menu function
 def choose_utilities_option():
@@ -37,8 +45,14 @@ def choose_utilities_option():
     print("4️⃣  🖱️ Auto Clicker")
     print("5️⃣  🔙 Back to Main Menu")
     print("=" * 20)
-    choice = input("👉 Enter your choice: ")
-    return int(choice)
+    try:
+        choice = int(input("👉 Enter your choice: "))
+        return int(choice)
+    except ValueError:
+        print("❌ Invalid input. Please enter a number.")
+        time.sleep(1.5)
+        reload()
+        return choose_utilities_option()
 
 # 🌐 Networking menu function
 def choose_networking_option():
@@ -51,7 +65,13 @@ def choose_networking_option():
     print("4️⃣  📡 Scan network devices")
     print("5️⃣  🔙 Back to Main Menu")
     print("=" * 20)
-    choice = input("👉 Enter your choice: ")
+    try:
+        choice = int(input("👉 Enter your choice: "))
+    except ValueError:
+        print("❌ Invalid input. Please enter a number.")
+        time.sleep(1.5)
+        reload()
+        return choose_networking_option()
     return int(choice)
 
 # 🔄 Main program loop
