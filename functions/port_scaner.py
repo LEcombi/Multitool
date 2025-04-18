@@ -17,7 +17,14 @@ class scanner:
         subprocess.call('clear', shell=True)
         self.server = input(f"{Fore.BLUE}[CONSOLE] Enter IP/domain to scan: ")
         self.thr = int(input("Please enter number of threads: "))
-        self.to_scan = int(input("How many ports to scan (1k-10k): "))
+        self.to_scan = str(input("How many ports to scan (1k-10k): "))
+
+        if self.to_scan == '1k':
+            self.to_scan = 1000
+        elif self.to_scan == '10k':
+            self.to_scan = 10000
+        else:
+            self.to_scan = int(self.to_scan)
         self.server_ip = socket.gethostbyname(self.server)
 
         # Ordner für Ausgabe erstellen
