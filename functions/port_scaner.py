@@ -9,7 +9,6 @@ import os
 import threading
 from colorama import Fore, Style, init
 
-# Automatisches Zurücksetzen der Farben nach jeder Ausgabe
 init(autoreset=True)
 
 class scanner:
