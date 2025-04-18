@@ -33,6 +33,7 @@ Scans a specified IP address range and displays the found devices (IP and MAC ad
 
 ### 9. Port Scanner
 Scans a specified range of ports from a host, displays the open ports, and saves them into a .txt file.
+
 ---
 
 ## Requirements
