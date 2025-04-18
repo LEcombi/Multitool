@@ -11,11 +11,11 @@ import dependencies.clear_screen as clear_screen
 import functions.List_network_devices as scan_network
 from dependencies.screen_baner import reload
 import functions.auto_klicker as auto_klicker
+from functions.port_scaner import scanner
 
 # 📢 Display the banner at the start of the program
 clear_screen.clear_screen()
 banner.display_banner()
-
 # 🧭 Main menu function
 def choose_option():
     print("\n" + "=" * 20)
@@ -63,7 +63,8 @@ def choose_networking_option():
     print("2️⃣  🖥️ Show system information")
     print("3️⃣  📶 Ping a host")
     print("4️⃣  📡 Scan network devices")
-    print("5️⃣  🔙 Back to Main Menu")
+    print("5️⃣  🛠️ Port Scanner")     # Code from Yuval Simon
+    print("6️⃣  🔙 Back to Main Menu")
     print("=" * 20)
     try:
         choice = int(input("👉 Enter your choice: "))
@@ -146,7 +147,11 @@ while True:
                 else:
                     print("❌ No devices found.")
 
-            elif networking_choice == 5:  # Back to Main Menu
+            elif networking_choice == 5:  # Port Scanner
+                reload()
+                scanner().main()
+
+            elif networking_choice == 6:  # Back to Main Menu
                 reload()
                 break
             else:
