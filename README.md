@@ -31,6 +31,8 @@ Enables automatic clicking on a specified button (left or right) with a custom c
 ### 8. Network Device Scanner
 Scans a specified IP address range and displays the found devices (IP and MAC addresses).
 
+### 9. Port Scanner
+Scans a specified range of ports from a host, displays the open ports, and saves them into a .txt file.
 ---
 
 ## Requirements
