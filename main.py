@@ -12,6 +12,7 @@ import functions.List_network_devices as scan_network
 from dependencies.screen_baner import reload
 import functions.auto_klicker as auto_klicker
 from functions.port_scaner import scanner
+import functions.auto_typing as auto_typing
 
 # 📢 Display the banner at the start of the program
 clear_screen.clear_screen()
@@ -43,8 +44,11 @@ def choose_utilities_option():
     print("2️⃣  🔁 Repeat text")
     print("3️⃣  📷 Generate QR code")
     print("4️⃣  🖱️ Auto Clicker")
-    print("5️⃣  🔙 Back to Main Menu")
+    print("5️⃣  ⌨️ Auto Typing")
+    print("6️⃣  🔙 Back to Main Menu")
+
     print("=" * 20)
+
     try:
         choice = int(input("👉 Enter your choice: "))
         return int(choice)
@@ -108,7 +112,12 @@ while True:
                 clicks_per_second = int(input("Enter the number of clicks per second (default is 10): ") or 10)
                 button = input("Enter the button to click (left/right, default is left): ") or "left"
                 auto_klicker.auto_klicker(clicks_per_second, button)
-            elif utilities_choice == 5:  # Back to Main Menu
+            elif utilities_choice == 5:  # Auto Typing
+                reload()
+                text = input("Enter the text to type: ")
+                delay = float(input("Enter the typing delay in seconds (default is 0.1): ") or 0.1)
+                auto_typing.auto_typing(text, delay)
+            elif utilities_choice == 6:  # Back to Main Menu
                 reload()
                 break
             else:
